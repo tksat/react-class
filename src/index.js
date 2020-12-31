@@ -1,25 +1,39 @@
 import React from 'react';
 import { render } from 'react-dom';
+import style from "./style.css"
 
-class Human extends React.Component {
+class H2o extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: "takada" }
+    this.state = { temp: 15 }
   }
 
-  changeState = () => {
-    this.setState({ name: this.state.name + "san" })
+  onPlusClick = () => { this.setState({ temp: this.state.temp + 1 }) }
+  onMinusClick = () => { this.setState({ temp: this.state.temp - 1 }) }
+  onPlus10Click = () => { this.setState({ temp: this.state.temp + 10 }) }
+  onMinus10Click = () => { this.setState({ temp: this.state.temp - 10 }) }
+
+  H2oState = (temp) => {
+    if (temp > 60) {
+      return "steam"
+    } else if (temp < -3) {
+      return "ice"
+    } else {
+      return "water"
+    }
   }
 
   render() {
     return (
       <>
-        <h1 onClick={this.changeState} >{this.state.name}</h1>
-        <h2>{this.props.music}</h2>
+        <h1 className={this.H2oState(this.state.temp)}>温度：{this.H2oState(this.state.temp)} {this.state.temp}</h1>
+        <button onClick={this.onPlusClick}>+</button>
+        <button onClick={this.onMinusClick}>-</button>
+        <button onClick={this.onPlus10Click}>+10</button>
+        <button onClick={this.onMinus10Click}>-10</button>
       </>
     )
   }
-
 }
 
-render(<Human music="pops" />, document.getElementById('root'));
+render(<H2o />, document.getElementById('root'));
