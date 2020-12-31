@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { render } from 'react-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const title = "変数でタイトルを入れました"
+const body = "変数でボディを入れました"
+const returnString = () => "文字を返す関数です"
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const reactElement = (
+  <div>
+    <h1>{title}</h1>
+    <h2>{body}</h2>
+    <div>{Math.random()}</div>
+    <div>{returnString()}</div>
+  </div>)
+
+render(reactElement, document.getElementById('root'));
