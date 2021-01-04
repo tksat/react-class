@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from "./App"
+import GiphyApp from "./GiphyApp"
 
-render(<App />, document.getElementById("root"))
+render(<GiphyApp />, document.getElementById("root"))
