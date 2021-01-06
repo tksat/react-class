@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import SarchBox from "./component/SarchBox"
 
 class GiphyApp extends React.Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class GiphyApp extends React.Component {
     this.state = { gifs: [] }
   }
 
-  getGif = () => {
+  getGif = serchText => {
     const searchArray = {
-      text: "cat",
+      text: serchText,
       limit: 10,
       apiKey: "QgQ8FCmQXZ1u6nLkFFLmPcf1Pn3aokWp"
     }
@@ -36,6 +37,7 @@ class GiphyApp extends React.Component {
     return (
       <>
         <h1>Giphyを検索アプリ</h1>
+        <SarchBox getGif={this.getGif()} />
         {this.imageList(this.state.gifs)}
       </>
     )
