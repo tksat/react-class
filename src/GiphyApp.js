@@ -8,9 +8,9 @@ class GiphyApp extends React.Component {
     this.state = { gifs: [] }
   }
 
-  getGif = serchText => {
+  getGif = target => {
     const searchArray = {
-      text: serchText,
+      text: target,
       limit: 10,
       apiKey: "QgQ8FCmQXZ1u6nLkFFLmPcf1Pn3aokWp"
     }
@@ -23,21 +23,17 @@ class GiphyApp extends React.Component {
     })
   }
 
-  imageList = (urlList, index) => {
-    const item = urlList.map(url => <li key={index}><img src={url} /></li>)
-    console.log(urlList)
+  imageList = (urlList) => {
+    const item = urlList.map((url, index) => <li key={index}><img src={url} alt="" /></li>)
     return <ul>{item}</ul>
   }
 
-  componentDidMount() {
-    this.getGif()
-  }
-
   render() {
+    console.log(this.state.gifs)
     return (
       <>
         <h1>Giphyを検索アプリ</h1>
-        <SarchBox getGif={this.getGif()} />
+        <SarchBox getGif={this.getGif} />
         {this.imageList(this.state.gifs)}
       </>
     )

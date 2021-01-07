@@ -1,9 +1,9 @@
 import React from "react"
 
-class SearchBox extends React.Component {
+class SarchBox extends React.Component {
   constructor(props) {
     super(props)
-    this.state = [{ text: "" }]
+    this.state = { text: "" }
   }
 
   handleChange = e => {
@@ -11,19 +11,19 @@ class SearchBox extends React.Component {
   }
 
   handleSubmit = e => {
-    e.preventdefault()
+    e.preventDefault()
     this.props.getGif(this.state.text)
     this.setState({ text: "" })
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.text} onChange={e => this.handleChange(e)} />
-        <input type="submit" onClick={e => this.handleSubmit(e)} />
+        <input type="submit" value="sartch" />
       </form>
     )
   }
 }
 
-export default SearchBox
+export default SarchBox
