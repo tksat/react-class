@@ -26,7 +26,7 @@ class GiphyApp extends React.Component {
   }
 
   imageList = (urlList) => {
-    const item = urlList.map((url, index) => <li key={index}><Img src={url} alt="" /></li>)
+    const item = urlList.map((url, index) => <List key={index}><Img src={url} alt="" /></List>)
     return <ul>{item}</ul>
   }
 
@@ -43,14 +43,19 @@ class GiphyApp extends React.Component {
 }
 
 //styled
+const List = styled.li`
+list-style-type: none;
+display: contents;
+`
+
 const Title = styled.h1`
   font-size: 20px;
   color: #333;
 `
 
 const Img = styled.img`
-  width: 300px;
-  height: auto;
+  width: auto;
+  height: 200px;
 `
 
 export default GiphyApp

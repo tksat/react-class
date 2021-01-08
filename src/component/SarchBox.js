@@ -21,7 +21,7 @@ class SarchBox extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <InputText type="text" value={this.state.text} onChange={e => this.handleChange(e)} />
-        <input type="submit" value="検索" />
+        <InputButton type="submit" value="検索" />
       </form>
     )
   }
@@ -35,25 +35,25 @@ const InputText = styled.input.attrs(props => ({
   border-radius: 4px;
 `
 
-// const InputButton = styled.input.attrs(props => ({
-//   type: "button"
-// }))`
-//   border: none;
-//   background: #333;
-//   color: #fff;
-//   margin: 0 0 0 10px;
-//   padding: 10px 10px 10px 12px;
-//   border-radius: 4px;
-//   font-size: 14px;
-//   letter-spacing: 2px;
-//   cursor:pointer;
-//   line-height: 1;
-//   &:hover{
-//     background: #000;
-//   }
-//   &:focus{
-//     outline: 0;
-//   }
-// `
+const InputButton = styled.input.attrs(props => ({
+  type: "submit"
+}))`
+  border: none;
+  background: #333;
+  color: #fff;
+  margin: 0 0 0 10px;
+  padding: 10px 10px 10px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor:pointer;
+  line-height: 1;
+  &:hover{
+    background: #000;
+  }
+  &:focus{
+    outline: 0;
+  }
+`
 
 export default SarchBox
