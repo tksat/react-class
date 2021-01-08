@@ -1,6 +1,8 @@
 import React from "react"
 import axios from "axios"
 import SarchBox from "./component/SarchBox"
+import styled from 'styled-components'
+
 
 class GiphyApp extends React.Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class GiphyApp extends React.Component {
   }
 
   imageList = (urlList) => {
-    const item = urlList.map((url, index) => <li key={index}><img src={url} alt="" /></li>)
+    const item = urlList.map((url, index) => <li key={index}><Img src={url} alt="" /></li>)
     return <ul>{item}</ul>
   }
 
@@ -32,12 +34,23 @@ class GiphyApp extends React.Component {
     console.log(this.state.gifs)
     return (
       <>
-        <h1>Giphyを検索アプリ</h1>
+        <Title>Giphyを検索アプリ</Title>
         <SarchBox getGif={this.getGif} />
         {this.imageList(this.state.gifs)}
       </>
     )
   }
 }
+
+//styled
+const Title = styled.h1`
+  font-size: 20px;
+  color: #333;
+`
+
+const Img = styled.img`
+  width: 300px;
+  height: auto;
+`
 
 export default GiphyApp

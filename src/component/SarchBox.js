@@ -1,4 +1,5 @@
 import React from "react"
+import styled from 'styled-components'
 
 class SarchBox extends React.Component {
   constructor(props) {
@@ -19,11 +20,40 @@ class SarchBox extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.text} onChange={e => this.handleChange(e)} />
-        <input type="submit" value="sartch" />
+        <InputText type="text" value={this.state.text} onChange={e => this.handleChange(e)} />
+        <input type="submit" value="検索" />
       </form>
     )
   }
 }
+
+const InputText = styled.input.attrs(props => ({
+  type: "text"
+}))`
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 4px;
+`
+
+// const InputButton = styled.input.attrs(props => ({
+//   type: "button"
+// }))`
+//   border: none;
+//   background: #333;
+//   color: #fff;
+//   margin: 0 0 0 10px;
+//   padding: 10px 10px 10px 12px;
+//   border-radius: 4px;
+//   font-size: 14px;
+//   letter-spacing: 2px;
+//   cursor:pointer;
+//   line-height: 1;
+//   &:hover{
+//     background: #000;
+//   }
+//   &:focus{
+//     outline: 0;
+//   }
+// `
 
 export default SarchBox
