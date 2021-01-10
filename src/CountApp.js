@@ -7,7 +7,6 @@ import { connect } from "react-redux"
 class CountApp extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = { num: null }
   }
 
@@ -41,11 +40,12 @@ class CountApp extends React.Component {
   }
 }
 
-//stateをprops.numberで呼び出す事ができるようになる
+//CountApp内でprops.numberで呼び出せる
 const mapStateToProps = state => {
   return { number: state }
 }
 
+//CountApp内でprops.plus、plops.minusで呼び出せる
 const mapDispatchToProps = dispatch => {
   return {
     plus: num => { dispatch({ type: 'PLUS', payload: { num: num } }) },
