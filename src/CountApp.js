@@ -1,13 +1,31 @@
 import React from "react"
-import { CreateStore } from "redux"
+import { createStore } from "redux"
+
+const reducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'PLUS':
+      return state + action.payload.num;
+    case 'MINUS':
+      return state - action.payload.num
+    default:
+      return state
+  }
+}
+
+const store = createStore(reducer)
+
+store.dispatch({ type: 'PLUS', payload: { num: 5 } })
 
 class CountApp extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
   }
 
   render() {
-    return (<>ここに入る</>)
+    console.log(store.getState())
+    return (
+      <>sample</>
+    )
   }
 }
 
