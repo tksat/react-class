@@ -17,7 +17,7 @@ class CountApp extends React.Component {
   stateReset = () => this.setState({ num: 0 })
 
   render() {
-    const { number, plus, minus } = this.props
+    const { number, plus, minus, day, title } = this.props
 
     const handlePlusClick = () => {
       plus(this.state.num)
@@ -30,7 +30,8 @@ class CountApp extends React.Component {
     }
     return (
       <>
-        <h2>{number}</h2>
+        <h2>Count:{number}</h2>
+        <h3>{day}{title}</h3>
         <input type="text" value={this.state.num} onChange={this.handleChange} />
         <button onClick={handlePlusClick}>+</button>
         <button onClick={handleMinusClick}>-</button>

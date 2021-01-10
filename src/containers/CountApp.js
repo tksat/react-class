@@ -4,7 +4,11 @@ import { plus, minus } from "../actions"
 
 //CountApp内でprops.numberで呼び出せる
 const mapStateToProps = state => {
-  return { number: state }
+  return {
+    number: state.numbers,
+    day: state.day,
+    title: state.title
+  }
 }
 
 //CountApp内でprops.plus、plops.minusで呼び出せる
