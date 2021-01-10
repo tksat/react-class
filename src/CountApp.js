@@ -1,32 +1,56 @@
 import React from "react"
-import { createStore } from "redux"
+import { connect } from "react-redux"
 
-const reducer = (state = 0, action) => {
-  switch (action.type) {
-    case 'PLUS':
-      return state + action.payload.num;
-    case 'MINUS':
-      return state - action.payload.num
-    default:
-      return state
-  }
-}
-
-const store = createStore(reducer)
-
-store.dispatch({ type: 'PLUS', payload: { num: 5 } })
+//ファンクショナルコンポーネントでpropsのみ受け取る場合は
+// const CountApp = ({ number, plus, minus }) => {
 
 class CountApp extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    this.state = { num: null }
   }
 
+  handleChange = e => {
+    const num = Number(e.target.value)
+    this.setState({ num })
+  }
+
+  stateReset = () => this.setState({ num: 0 })
+
   render() {
-    console.log(store.getState())
+    const { number, plus, minus } = this.props
+
+    const handlePlusClick = () => {
+      plus(this.state.num)
+      this.stateReset()
+    }
+
+    const handleMinusClick = () => {
+      minus(this.state.num)
+      this.stateReset()
+    }
     return (
-      <>sample</>
+      <>
+        <h2>{number}</h2>
+        <input type="text" value={this.state.num} onChange={this.handleChange} />
+        <button onClick={handlePlusClick}>+</button>
+        <button onClick={handleMinusClick}>-</button>
+      </>
     )
   }
 }
 
-export default CountApp
+//stateをprops.numberで呼び出す事ができるようになる
+const mapStateToProps = state => {
+  return { number: state }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    plus: num => { dispatch({ type: 'PLUS', payload: { num: num } }) },
+    minus: num => { dispatch({ type: 'MINUS', payload: { num: num } }) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountApp)
