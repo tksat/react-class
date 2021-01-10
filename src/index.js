@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
+import CountApp from "./CountApp"
 
-import GiphyApp from "./GiphyApp"
-
-render(<GiphyApp />, document.getElementById("root"))
+render(<CountApp />, document.getElementById("root"))
