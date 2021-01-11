@@ -4,6 +4,8 @@ const number = (state = 0, action) => {
       return state + action.payload.num;
     case 'MINUS':
       return state - action.payload.num
+    case 'ASINC_PLUS':
+      return state + action.payload.num
     default:
       return state
   }

@@ -17,7 +17,7 @@ class CountApp extends React.Component {
   stateReset = () => this.setState({ num: 0 })
 
   render() {
-    const { number, plus, minus, day, title } = this.props
+    const { number, plus, minus, asyncPlus, day, title } = this.props
 
     const handlePlusClick = () => {
       plus(this.state.num)
@@ -28,6 +28,12 @@ class CountApp extends React.Component {
       minus(this.state.num)
       this.stateReset()
     }
+
+    const handleAsincMinusClick = () => {
+      asyncPlus(this.state.num)
+      this.stateReset()
+    }
+
     return (
       <>
         <h2>Count:{number}</h2>
@@ -35,6 +41,7 @@ class CountApp extends React.Component {
         <input type="text" value={this.state.num} onChange={this.handleChange} />
         <button onClick={handlePlusClick}>+</button>
         <button onClick={handleMinusClick}>-</button>
+        <button onClick={handleAsincMinusClick}>1秒後 +</button>
       </>
     )
   }

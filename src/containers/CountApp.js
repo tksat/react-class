@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import CountApp from "../component/CountApp"
-import { plus, minus } from "../actions"
+import { plus, minus, asyncPlus } from "../actions"
 
 //CountApp内でprops.numberで呼び出せる
 const mapStateToProps = state => {
@@ -15,7 +15,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     plus: num => dispatch(plus(num)),
-    minus: num => { dispatch(minus(num)) }
+    minus: num => dispatch(minus(num)),
+    asyncPlus: num => dispatch(asyncPlus(num))
   }
 }
 
