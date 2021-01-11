@@ -17,7 +17,7 @@ class CountApp extends React.Component {
   stateReset = () => this.setState({ num: 0 })
 
   render() {
-    const { number, plus, minus, asyncPlus, day, title } = this.props
+    const { number, plus, minus, asyncPlus, changeTitle, day, title } = this.props
 
     const handlePlusClick = () => {
       plus(this.state.num)
@@ -42,6 +42,7 @@ class CountApp extends React.Component {
         <button onClick={handlePlusClick}>+</button>
         <button onClick={handleMinusClick}>-</button>
         <button onClick={handleAsincMinusClick}>1秒後 +</button>
+        <button onClick={() => changeTitle()}>textをjsonから取得したものに変更</button>
       </>
     )
   }
