@@ -1,18 +1,14 @@
 import React from "react"
 import ImageList from "../containers/ImageList"
-import Serch from "./Serch"
-import giphyApi from "../APIs/giphyApi"
+import Serch from "../containers/Serch"
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import rootReducer from "../reducers"
-// import { thunk } from "redux-thunk"
-// const middlewwares = [thunk]
-const store = createStore(rootReducer)
-
+import thunk from "redux-thunk"
+const middlewwares = [thunk]
+const store = createStore(rootReducer, applyMiddleware(...middlewwares))
 
 const GiphyApp = () => {
-  giphyApi("cat")
-
   return (
     <Provider store={store}>
       <Serch />

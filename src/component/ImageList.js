@@ -4,7 +4,7 @@ const ImageList = ({ imageUrls }) => {
   const list = imageUrls.map(url => {
     return (
       <li key={url}>
-        <img src={url} alt="" />{url}
+        <img src={url} alt="" />
       </li>
     )
   })
