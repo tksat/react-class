@@ -20,7 +20,7 @@ class Serch extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.text} onChange={e => this.handleOnChange(e)} />
-        <input type="submit" />
+        <input type="submit" value={this.props.buttonText} />
       </form>
     )
   }
