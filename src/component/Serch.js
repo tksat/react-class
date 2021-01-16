@@ -12,6 +12,7 @@ class Serch extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    this.props.getImageUrls(this.state.text)
     this.setState({ text: "" })
   }
 

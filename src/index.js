@@ -1,9 +1,7 @@
 import React from "react"
 import { render } from 'react-dom';
-import GiphyApp from './component/GiphyApp'
+import GiphyApp from "./component/GiphyApp"
 
 render(
-  <>
-    <GiphyApp />
-  </>
+  <GiphyApp />
   , document.getElementById("root"))
